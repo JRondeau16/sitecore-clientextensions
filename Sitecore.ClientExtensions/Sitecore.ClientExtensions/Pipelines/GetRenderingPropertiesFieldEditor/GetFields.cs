@@ -190,12 +190,9 @@ namespace Sitecore.ClientExtensions.Pipelines.GetRenderingPropertiesFieldEditor
         protected virtual FieldDescriptor GetAdditionalParameters(Item standardValues, Dictionary<string, string> additionalParameters)
         {
             Assert.ArgumentNotNull(standardValues, "standardValues");
-            if (additionalParameters == null || additionalParameters.Count == 0)
-            {
-                return null;
-            }
-            var value = new UrlString();
+            Assert.ArgumentNotNull(additionalParameters, "additionalParameters");
 
+            var value = new UrlString();
             foreach (var key in additionalParameters.Keys)
             {
                 value[key] = HttpUtility.UrlDecode(additionalParameters[key]);
