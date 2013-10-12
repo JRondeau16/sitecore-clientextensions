@@ -50,25 +50,36 @@ namespace Sitecore.ClientExtensions.Pipelines.GetRenderingPropertiesFieldEditor
             fieldCol.ReadAll();
             fieldCol.Sort();
 
-            var fields = GetIncludedFields(fieldCol, args);
-            if (fields == null || fields.Count == 0)
+            var includedFields = GetIncludedFields(fieldCol, args);
+            if (includedFields == null || includedFields.Count == 0)
             {
                 return fieldDescriptors;
             }
-            //var fields = fieldCol.Where(f => args.FieldNames.Contains(f.Name));
-            foreach (var field in fields)
+
+            foreach (Field field in fieldCol)
             {
-                var fieldDescriptor = GetFieldDescriptor(field, args);
-                if (fieldDescriptor == null)
+                if (includedFields.Contains(field))
                 {
-                    continue;
+                    var fieldDescriptor = GetFieldDescriptor(field, args);
+                    if (fieldDescriptor != null)
+                    {
+                        fieldDescriptors.Add(fieldDescriptor);
+                    }
                 }
-                fieldDescriptors.Add(fieldDescriptor);
                 additionalParameters.Remove(field.Name);
             }
-            GetAdditionalParameters(fieldDescriptors, args.StandardValuesItem, additionalParameters);
+            var additionalParametersField = includedFields.FirstOrDefault(f => f.Name.Equals("Additional Parameters", StringComparison.OrdinalIgnoreCase));
+            if (additionalParametersField != null)
+            {
+                var additionalParametersDescriptor = GetAdditionalParameters(args.StandardValuesItem, additionalParameters);
+                if (additionalParametersDescriptor != null)
+                {
+                    fieldDescriptors.Add(additionalParametersDescriptor);
+                }
+            }
             return fieldDescriptors;
         }
+        
         protected virtual List<Field> GetIncludedFields(FieldCollection fieldCol, GetRenderingPropertiesArgs args)
         {
             var includedFields = new List<Field>();
@@ -176,12 +187,13 @@ namespace Sitecore.ClientExtensions.Pipelines.GetRenderingPropertiesFieldEditor
             args.RenderingParameters.TryGetValue(fieldName, out value);
             return value;
         }
-        protected virtual void GetAdditionalParameters(List<FieldDescriptor> fieldDescriptors, Item standardValues, Dictionary<string, string> additionalParameters)
+        protected virtual FieldDescriptor GetAdditionalParameters(Item standardValues, Dictionary<string, string> additionalParameters)
         {
-            Assert.ArgumentNotNull(fieldDescriptors, "fieldDescriptors");
             Assert.ArgumentNotNull(standardValues, "standardValues");
-            Assert.ArgumentNotNull(additionalParameters, "additionalParameters");
-
+            if (additionalParameters == null || additionalParameters.Count == 0)
+            {
+                return null;
+            }
             var value = new UrlString();
 
             foreach (var key in additionalParameters.Keys)
@@ -189,7 +201,8 @@ namespace Sitecore.ClientExtensions.Pipelines.GetRenderingPropertiesFieldEditor
                 value[key] = HttpUtility.UrlDecode(additionalParameters[key]);
             }
 
-            fieldDescriptors.Add(new FieldDescriptor(standardValues, "Additional Parameters") { Value = value.ToString() });
+            var descriptor = new FieldDescriptor(standardValues, "Additional Parameters") { Value = value.ToString() };
+            return descriptor;
         }
 
     }
