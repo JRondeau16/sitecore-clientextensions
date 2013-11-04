@@ -23,6 +23,17 @@ namespace Sitecore.ClientExtensions.Pipelines.SaveRenderingPropertiesFieldEditor
 
             var parameters = new UrlString();
             var options = RenderingParametersFieldEditorOptions.Parse(args.Handle);
+            
+            //
+            //save the parameters that have already been set
+            var currentParams = new UrlString(args.RenderingDefinition.Parameters);
+            foreach (var key in currentParams.Parameters.AllKeys)
+            {
+                var name = key;
+                var value = currentParams[key];
+                SetValue(renderingDef, parameters, name, value);
+            }
+
             foreach (var field in options.Fields)
             {
                 SetValue(renderingDef, parameters, fieldCol[field.FieldID].Name, field.Value);
