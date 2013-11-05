@@ -1,0 +1,4 @@
+C:\Users\adc\Documents\Visual Studio 2013\Projects\Sitecore.ClientExtensions\Sitecore.ClientExtensions\bin\Sitecore.ClientExtensions.dll
+C:\Users\adc\Documents\Visual Studio 2013\Projects\Sitecore.ClientExtensions\Sitecore.ClientExtensions\bin\Sitecore.ClientExtensions.pdb
+C:\Users\adc\Documents\Visual Studio 2013\Projects\Sitecore.ClientExtensions\Sitecore.ClientExtensions\obj\Debug\Sitecore.ClientExtensions.dll
+C:\Users\adc\Documents\Visual Studio 2013\Projects\Sitecore.ClientExtensions\Sitecore.ClientExtensions\obj\Debug\Sitecore.ClientExtensions.pdb

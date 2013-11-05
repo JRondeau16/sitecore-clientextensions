@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <Sitecore.Shell.Applications.Dialogs.DateTimeSelectorEx>
+    <FormDialog ID="Dialog" Header="Date/Time" Text="Select a date/time." Icon="People/32x32/clock.png">
+      <CodeBeside Type="Sitecore.ClientExtensions.Dialogs.DateTimeSelectorEx, Sitecore.ClientExtensions" />
+
+      <Border Padding="4px 0px 0px 24px">
+        <DateTimePicker ID="DateTimePicker"/>
+      </Border>
+
+    </FormDialog>
+  </Sitecore.Shell.Applications.Dialogs.DateTimeSelectorEx>
+</control>

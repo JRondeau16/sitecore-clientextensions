@@ -72,11 +72,20 @@
     <Compile Include="Pipelines\SaveRenderingPropertiesFieldEditor\SetValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EditRenderingProperties.cs" />
+    <Compile Include="RuleMacros\DateOnlyMacro.cs" />
+    <Compile Include="RuleMacros\DateTimeMacroEx.cs" />
+    <Compile Include="Dialogs\DateTimeSelectorEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Sitecore.ClientExtensions.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="package\Sitecore Client Extensions.xml" />
+    <Content Include="Shell\Applications\Dialogs\DateTimeSelectors\DateTimeSelectorEx.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="package\Sitecore Client Extensions-1.0.5.zip" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -103,6 +112,11 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y "$(TargetDir)*" z:\Sitecore\Website\bin
+xcopy /y "$(ProjectDir)App_Config\Include\*" z:\Sitecore\Website\App_Config\Include
+xcopy /y "$(ProjectDir)Shell\Applications\Dialogs\DateTimeSelectors\*" z:\Sitecore\Website\sitecore\shell\Applications\Dialogs\DateTimeSelectors</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
