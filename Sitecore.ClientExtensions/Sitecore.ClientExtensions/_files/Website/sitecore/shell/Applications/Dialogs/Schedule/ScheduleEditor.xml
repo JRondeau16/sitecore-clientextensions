@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <ScheduleEditor>
+    <FormDialog Header="Schedule Editor" Text="Edit the settings for the schedule." Icon="People/32x32/clock.png">
+      <CodeBeside Type="Sitecore.ClientExtensions.Applications.Dialogs.Schedule.ScheduleEditorForm, Sitecore.ClientExtensions" />
+      <Script runat="server">
+        function clearall(){
+        $$('.scComboboxEdit').each(function(e){ e.value=''});
+        }
+
+        function datetimeChrome(){
+        $$('.scScrollbox')[0].setStyle({'overflow' : 'hidden'});
+
+        if (!scForm.browser.isChrome){
+        return;
+        }
+
+        $$('.scDateTimePickerContainer > table').each(function(t) {
+        var width=t.width;
+        t.getElementsBySelector('input').each(function(i) {
+        i.setStyle({'width' : width});
+        });
+        });
+        }
+
+        Event.observe(window, 'load', datetimeChrome);
+      </Script>
+      <GridPanel runat="server" Width="100%"  >
+        <Border runat="server" style="margin-top: 8px;margin-bottom: 2px" GridPanel.Height="50px" GridPanel.VAlign="top" >
+          <Border runat="server" style="margin-bottom: 2px">
+            <b>
+              <Literal Text="Start Date" runat="server" />
+            </b>
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <Literal Text="Select the date the task should start to be scheduled." runat="server" />
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <DateTimePicker ID="StartDate" />
+          </Border>
+        </Border>
+
+        <Border runat="server" style="margin-top: 8px;margin-bottom: 2px" GridPanel.Height="50px" GridPanel.VAlign="top" >
+          <Border runat="server" style="margin-bottom: 2px">
+            <b>
+              <Literal Text="End Date" runat="server" />
+            </b>
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <Literal Text="Select the date the task should stop being scheduled." runat="server" />
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <DateTimePicker ID="EndDate" />
+          </Border>
+        </Border>
+
+        <Border runat="server" style="margin-top: 8px;margin-bottom: 2px" GridPanel.Height="15px">
+          <b>
+            <Literal Text="Days" />
+          </b>
+        </Border>
+        <Border runat="server" style="margin-bottom: 2px">
+          <Literal Text="Select the days of the week the task should run." runat="server" />
+        </Border>
+        <Border runat="server" style="margin-bottom: 2px">
+          <Checklist ID="Days" Height="100%"/>
+        </Border>
+
+        <Border runat="server" style="margin-top: 8px;margin-bottom: 2px" GridPanel.Height="50px" GridPanel.VAlign="top">
+          <Border runat="server" style="margin-bottom: 2px">
+            <b>
+              <Literal Text="Interval" runat="server" />
+            </b>
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <Literal Text="Specify how often the task should be scheduled." runat="server" />
+          </Border>
+          <Border runat="server" style="margin-bottom: 2px">
+            <GridPanel Columns="5" Cellpadding="2" runat="server" Align="left">
+              <Edit GridPanel.Align="center" runat="server" width="70" style="text-align:center;" ID="IntervalDays" />
+              <Edit GridPanel.Align="center" runat="server" width="70" style="text-align:center;" ID="IntervalHours" />
+              <Edit GridPanel.Align="center" runat="server" width="70" style="text-align:center;" ID="IntervalMinutes" />
+              <Edit GridPanel.Align="center" runat="server" width="70" style="text-align:center;" ID="IntervalSeconds" />
+              <Edit GridPanel.Align="center" runat="server" width="70" style="text-align:center;" ID="IntervalMilliseconds" />
+
+              <Literal GridPanel.NoWrap="true" GridPanel.Align="center" runat="server" Text="Days" />
+              <Literal GridPanel.NoWrap="true" GridPanel.Align="center" runat="server" Text="Hours" />
+              <Literal GridPanel.NoWrap="true" GridPanel.Align="center" runat="server" Text="Minutes" />
+              <Literal GridPanel.NoWrap="true" GridPanel.Align="center" runat="server" Text="Seconds" />
+              <Literal GridPanel.NoWrap="true" GridPanel.Align="center" runat="server" Text="Milliseconds" />
+            </GridPanel>
+          </Border>
+        </Border>
+      </GridPanel>
+
+      <Border def:placeholder="Buttons" runat="server">
+        <Button Header="Clear all" runat="server"  Type="button" Click="OnClear" />
+      </Border>
+
+    </FormDialog>
+  </ScheduleEditor>
+</control>

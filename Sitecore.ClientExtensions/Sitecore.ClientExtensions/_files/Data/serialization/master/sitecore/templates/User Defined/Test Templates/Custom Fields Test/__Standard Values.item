@@ -1,0 +1,91 @@
+----item----
+version: 1
+id: {9EAD5480-5FBD-4726-9537-538F48B457CF}
+database: master
+path: /sitecore/templates/User Defined/Test Templates/Custom Fields Test/__Standard Values
+parent: {D5291F35-C647-425C-A671-B6B45914F780}
+name: __Standard Values
+master: {00000000-0000-0000-0000-000000000000}
+template: {D5291F35-C647-425C-A671-B6B45914F780}
+templatekey: Custom Fields Test
+
+----field----
+field: {EF5024D5-80AE-4D9E-8E3B-8D52D136CDF7}
+name: Schedule
+key: schedule
+content-length: 0
+
+
+----field----
+field: {93785A84-1EAB-4A66-89E8-C100D3D99412}
+name: Days
+key: days
+content-length: 0
+
+
+----field----
+field: {B0A67B2A-8B07-4E0B-8809-69F751709806}
+name: __Tracking
+key: __tracking
+content-length: 679
+
+<tracking>
+ <event id="{8D8C357B-909D-47F6-BFE9-20C2CD89853B}" name="Add a Favorite" />
+ <event id="{28A7C944-B8B6-45AD-A635-6F72E8F81F69}" name="Instant Demo" />
+ <event id="{66722F52-2D13-4DCC-90FC-EA7117CF2298}" name="Login" />
+ <event id="{1779CC42-EF7A-4C58-BF19-FA85D30755C9}" name="Newsletter Signup" />
+ <profile id="{62A90F30-9BAB-425B-8A6D-4AE5A28371D6}" name="Job Function" presets="connie the content manager|100||">
+ <key name="Analytics" value="1" />
+ <key name="Copywriting" value="5" />
+ <key name="Personalization and Testing" value="3" />
+ <key name="Technology" value="0" />
+ <key name="Workflow and Publishing" value="1" />
+ </profile>
+</tracking>
+----version----
+language: en
+version: 1
+revision: 6e6b73f2-2f80-442d-bc1e-d54ea81ef932
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20131108T165026
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+6e6b73f2-2f80-442d-bc1e-d54ea81ef932
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20131109T121611:635195961711451417
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

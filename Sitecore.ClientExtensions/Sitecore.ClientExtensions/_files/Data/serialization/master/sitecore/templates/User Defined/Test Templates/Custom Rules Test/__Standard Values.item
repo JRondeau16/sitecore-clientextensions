@@ -1,0 +1,82 @@
+----item----
+version: 1
+id: {BFC780C8-1518-457A-8AF8-E9C25583DA7D}
+database: master
+path: /sitecore/templates/User Defined/Test Templates/Custom Rules Test/__Standard Values
+parent: {7F7EF328-E6BB-4397-BF01-66F1FD6643C2}
+name: __Standard Values
+master: {00000000-0000-0000-0000-000000000000}
+template: {7F7EF328-E6BB-4397-BF01-66F1FD6643C2}
+templatekey: Custom Rules Test
+
+----field----
+field: {602BFACC-2E57-44CE-97BD-61652108C5A6}
+name: Rules
+key: rules
+content-length: 930
+
+<ruleset>
+ <rule uid="{0A35C840-1C16-46FA-A401-78A8797BEC70}" name="Between 8am and 5pm on 1 Nov 2013">
+  <conditions>
+   <and uid="FD3E70EA651E4514AF63402C9D4C74D4">
+    <condition id="{2897DD20-CF87-4A02-BBD0-2A4FAC256501}" uid="374C4B9E03284C33BDBFB5B2E3976673" isodate="20131101T080000" />
+    <condition id="{42E60D36-56F0-43FF-9D74-CA463F86771B}" uid="2B77BA9681BA48CAB9D02E3365B16159" isodate="20131101T180000" />
+   </and>
+  </conditions>
+ </rule>
+ <rule uid="{14889B56-1482-4E41-8A89-4A4A83AB0C86}" name="Between 1 Oct 2013 and 31 Oct 2013">
+  <conditions>
+   <and uid="9D5C075673D948ACB9A09692FBC41DB4">
+    <condition id="{7F152FAA-A896-48D1-A08A-1E2F659E8108}" uid="80FCDDE6012C4C34A70B1A97B7F2FB9B" isodate="20131001T000000" />
+    <condition id="{35DF6671-0E6E-4519-A347-6BDC3326DE67}" uid="5AC011D721FD4933A4766180808D606D" isodate="20131031T000000" />
+   </and>
+  </conditions>
+ </rule>
+</ruleset>
+----version----
+language: en
+version: 1
+revision: ec09daf2-ee43-48f5-9211-9f84e885c3c8
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20131109T141916
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+ec09daf2-ee43-48f5-9211-9f84e885c3c8
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20131109T152720:635196076407197269
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

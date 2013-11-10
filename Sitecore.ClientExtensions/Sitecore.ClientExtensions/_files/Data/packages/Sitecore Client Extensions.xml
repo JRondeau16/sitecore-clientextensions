@@ -1,0 +1,127 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Client Extensions</PackageName>
+      <Author>Adam Conn</Author>
+      <Version>1.0.6</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme>This package requires Sitecore 7.0. The components should 
+be compatible for other versions of Sitecore but may need 
+to be recompiled.</Readme>
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/system/Modules/Flags/{A56D0C8A-20D1-45A0-AFB0-13E61B32C3B9}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/{04CA8443-DBED-4BD0-88B5-40B0809D1F7C}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Friday/{88AD48BB-19B2-4F24-A463-2A1D92F240BC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Monday/{96518FD8-1A84-42B4-B13A-AE42E8267AC2}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Saturday/{0D426D3D-87E0-4277-A710-755A45D073DB}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Sunday/{7279D80D-2CE0-405C-9CDF-08DA4C79488D}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Thursday/{1E5C4B5B-D37F-4FF3-9140-67798D740796}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Tuesday/{72490925-CF93-489C-92CD-AABA238FBF02}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Modules/Flags/Scheduler Days/Wednesday/{9ACA7A33-6A1A-4E02-956B-23CAB41B15FC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Conditions/Extensions/{476754C2-F3EB-4CBD-87A6-52D9833C43E0}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Conditions/Extensions/Item Created After Date/{7F152FAA-A896-48D1-A08A-1E2F659E8108}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Conditions/Extensions/Item Created After Time/{2897DD20-CF87-4A02-BBD0-2A4FAC256501}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Conditions/Extensions/Item Created Before Date/{35DF6671-0E6E-4519-A347-6BDC3326DE67}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Conditions/Extensions/Item Created Before Time/{42E60D36-56F0-43FF-9D74-CA463F86771B}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Macros/DateOnly/{A4DE816D-0821-47DE-B923-283EFE1F55C6}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Common/Macros/DateTimeEx/{2E2E024C-67E5-413B-87AD-5F9F0BE6DE17}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/{0FF2B59F-D4E3-4C4C-A663-FB85D11FFD7E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/Flag/__Standard Values/{7E0D057F-FAFE-482F-B8A5-362DF27AA1E4}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/Flag/{2C25F5DB-4F23-4B7A-BD8D-7430D1E1AA87}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/Flag/Data/{280B4996-EE76-4E4B-BC03-7F7B9DFEB0AA}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/Flag/Data/Name/{A1FA4078-045D-4EB5-B03F-E68802D5EFE6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Flags/Flag/Data/Value/{524F4C41-B164-401A-A9DE-EADF045D43CD}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/{D8575CFA-A9B0-492D-8544-7A37B102F746}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Fields Test/__Standard Values/{9EAD5480-5FBD-4726-9537-538F48B457CF}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Fields Test/{D5291F35-C647-425C-A671-B6B45914F780}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Fields Test/Data/{86FCF745-8E99-47FD-830D-1FA2392426A3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Fields Test/Data/Days/{93785A84-1EAB-4A66-89E8-C100D3D99412}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Fields Test/Data/Schedule/{EF5024D5-80AE-4D9E-8E3B-8D52D136CDF7}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Rules Test/__Standard Values/{BFC780C8-1518-457A-8AF8-E9C25583DA7D}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Rules Test/{7F7EF328-E6BB-4397-BF01-66F1FD6643C2}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Rules Test/Data/{4F6D73AC-4F2D-4AB8-B5D2-2E86F008B484}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/User Defined/Test Templates/Custom Rules Test/Data/Rules/{602BFACC-2E57-44CE-97BD-61652108C5A6}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms />
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>master items</Name>
+    </xitems>
+    <xitems>
+      <Entries>
+        <x-item>/core/sitecore/content/Applications/WebEdit/Custom Experience Buttons/Client Extensions Examples/{88B38F31-7E68-4484-8288-C78722DE1CB6}/invariant/0</x-item>
+        <x-item>/core/sitecore/content/Applications/WebEdit/Custom Experience Buttons/Client Extensions Examples/Caching/{1E957DED-B8A8-485C-8B6E-C1645F65758C}/invariant/0</x-item>
+        <x-item>/core/sitecore/content/Applications/WebEdit/Custom Experience Buttons/Client Extensions Examples/General and Parameters/{974E1848-9C19-435B-AFEA-81D4E1D819AF}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/{7275B6EE-08E5-4C02-93C6-E7E39CC1EF4E}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Flags/{38EF4197-3843-4CD7-A8D6-7C8986BAEC5D}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Flags/Menu/{ECE80F8C-F5CA-42EA-AB18-74AE3B29D194}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Flags/Menu/Check All/{A314189E-4140-4334-AF90-72167788CC39}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Flags/Menu/Invert/{4A798B98-ED41-4D4D-AD54-E98C0384D98E}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Flags/Menu/Uncheck All/{2E4F4942-905D-4EF9-9910-4175B02B8E35}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Schedule/{EAC6206F-460E-404A-88E7-A27E219D39E8}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Schedule/Menu/{E81C2C9E-49BA-4339-9E01-4CEF6F33AAEF}/invariant/0</x-item>
+        <x-item>/core/sitecore/system/Field types/Custom Types/Schedule/Menu/Edit Schedule/{2A4129B8-8290-4FF8-86E1-6368F01C65FD}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>core items</Name>
+    </xitems>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/Sitecore.ClientExtensions.config</x-item>
+        <x-item>/bin/Sitecore.ClientExtensions.dll</x-item>
+        <x-item>/sitecore/shell/Applications/Dialogs/DateTimeSelectors/DateTimeSelectorEx.xml</x-item>
+        <x-item>/sitecore/shell/Applications/Dialogs/Schedule/</x-item>
+        <x-item>/sitecore/shell/Applications/Dialogs/Schedule/ScheduleEditor.xml</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms />
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>

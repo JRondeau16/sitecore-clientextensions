@@ -1,0 +1,58 @@
+----item----
+version: 1
+id: {0D426D3D-87E0-4277-A710-755A45D073DB}
+database: master
+path: /sitecore/system/Modules/Flags/Scheduler Days/Saturday
+parent: {04CA8443-DBED-4BD0-88B5-40B0809D1F7C}
+name: Saturday
+master: {00000000-0000-0000-0000-000000000000}
+template: {2C25F5DB-4F23-4B7A-BD8D-7430D1E1AA87}
+templatekey: Flag
+
+----field----
+field: {524F4C41-B164-401A-A9DE-EADF045D43CD}
+name: Value
+key: value
+content-length: 2
+
+64
+----version----
+language: en
+version: 1
+revision: 3d51b723-28dc-44ab-90c9-6dfef74aebef
+
+----field----
+field: {A1FA4078-045D-4EB5-B03F-E68802D5EFE6}
+name: Name
+key: name
+content-length: 8
+
+Saturday
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20131027T095238
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+3d51b723-28dc-44ab-90c9-6dfef74aebef
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20131027T095355:635184644351070151
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
