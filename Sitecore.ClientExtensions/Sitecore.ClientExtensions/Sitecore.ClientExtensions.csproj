@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Applications\Dialogs\Schedule\ScheduleEditorForm.cs" />
     <Compile Include="ContentEditor\FlagsField.cs" />
+    <Compile Include="ContentEditor\ItemFlagsField.cs" />
     <Compile Include="ContentEditor\ScheduleField.cs" />
     <Compile Include="Dialogs\DateTimeSelectors\DateTimeSelectorEx.cs" />
     <Compile Include="PageEditor\Commands\EditRenderingProperties.cs" />

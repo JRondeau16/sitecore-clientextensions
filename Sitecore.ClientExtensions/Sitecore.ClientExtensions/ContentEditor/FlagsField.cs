@@ -4,36 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI;
-using Sitecore.Data;
-using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
-using Sitecore.Shell.Applications.ContentEditor;
-using Sitecore.Web.UI.HtmlControls;
 
 namespace Sitecore.ClientExtensions.ContentEditor
 {
     public class FlagsField : Sitecore.Web.UI.HtmlControls.Input
     {
-        protected virtual string GetSelectedFlagItemsAsString(string flagsPath)
+        protected virtual void SetSelectedItemsOnChecklist(Sitecore.Shell.Applications.ContentEditor.Checklist list)
         {
-            var flagsFolderItem = Sitecore.Context.ContentDatabase.GetItem(flagsPath);
-            var selectedIds = new List<ID>();
-            if (flagsFolderItem != null)
+            foreach (var item in list.Items)
             {
-                foreach (Item flagItem in flagsFolderItem.Children)
-                {
-                    if (IsFlagSet(this.Value, flagItem["Value"]))
-                    {
-                        selectedIds.Add(flagItem.ID);
-                    }
-                }
+                item.Checked = IsFlagSet(this.Value, item.Value);
             }
-            if (selectedIds.Count == 0)
-            {
-                return null;
-            }
-            return selectedIds.Select(g => g.ToString()).Aggregate((a, b) => a + "|" + b);
         }
         protected virtual bool IsFlagSet(string flags, string flag)
         {
@@ -77,6 +58,48 @@ namespace Sitecore.ClientExtensions.ContentEditor
             Sitecore.Context.ClientPage.ClientResponse.SetReturnValue(true);
         }
 
+        protected virtual void SetChecklistSource(Sitecore.Shell.Applications.ContentEditor.Checklist list)
+        {
+            var days = this.Source.Split(',').Select(value => value.Split('='));
+            if (days.Any(s => s.Length != 2))
+            {
+                return;
+            }
+            foreach (var day in days)
+            {
+                var item = new Sitecore.Web.UI.HtmlControls.ChecklistItem();
+                item.ID = (list.ID + day[1]);
+                item.Header = day[0];
+                item.Value = day[1];
+                list.Controls.Add(item);
+            }
+        }
+
+        protected virtual int GetValueFromChecklistItem(Sitecore.Web.UI.HtmlControls.ChecklistItem item)
+        {
+            var value = GetFlagValue(item.Value);
+            Sitecore.Diagnostics.Assert.IsTrue(value.HasValue, "Item {0} has a value {1}, which is not a valid flag.", item.Header, item.Value);
+            return value.GetValueOrDefault(0);
+        }
+        protected virtual int GetValueFromChecklist(Sitecore.Shell.Applications.ContentEditor.Checklist list)
+        {
+            var value = 0;
+            if (list.Items.Length == 0)
+            {
+                int.TryParse(this.Value, out value);
+            }
+            else
+            {
+                foreach (var item in list.Items)
+                {
+                    if (item.Checked)
+                    {
+                        value += GetValueFromChecklistItem(item);
+                    }
+                }
+            }
+            return value;
+        }
         protected override void OnLoad(EventArgs e)
         {
             if (!Sitecore.Context.ClientPage.IsEvent)
@@ -84,43 +107,44 @@ namespace Sitecore.ClientExtensions.ContentEditor
                 var list = new Sitecore.Shell.Applications.ContentEditor.Checklist();
                 this.Controls.Add(list);
                 list.ID = GetID("list");
-                list.Source = this.Source;
                 list.ItemID = this.ItemID;
+                SetChecklistSource(list);
+                SetSelectedItemsOnChecklist(list);
                 list.TrackModified = this.TrackModified;
                 list.Disabled = this.Disabled;
-                list.Click = this.ID + ".OnListClick";  //This forces a refresh when the list is clicked. 
-                                                        //Without this the component will not refresh.
-                var listValue = GetSelectedFlagItemsAsString(this.Source);
-                if (!string.IsNullOrEmpty(listValue))
-                {
-                    list.Value = listValue;
-                }
-
+                //
+                //Add an event handler for when the list is clicked.
+                //This forces a server-side event. If the event
+                //handler is not specified, no server-side event
+                //will be triggered and the component will not
+                //know it needs to be refreshed.
+                list.Click = this.ID + ".OnListClick";  
+                //
+                //For usability display the selected flag values as a
+                //comma-separated string above the Checklist control
                 var text = new Sitecore.Shell.Applications.ContentEditor.Text();
                 this.Controls.AddAt(0, text);
                 text.ID = GetID("text");
                 text.ReadOnly = true;
                 text.Disabled = this.Disabled;
-
-                this.Controls.Add(new LiteralControl(Sitecore.Resources.Images.GetSpacer(24, 16)));
+                //
+                //Add a spacer image so the controls are positioned
+                //in a more visually pleasing way
+                //way
+                this.Controls.Add(new System.Web.UI.LiteralControl(Sitecore.Resources.Images.GetSpacer(24, 16)));
             }
             else
             {
+                //
+                //If the value has changed then update the 
+                //value on the control
                 var list = FindControl(GetID("list")) as Sitecore.Shell.Applications.ContentEditor.Checklist;
                 if (list != null)
                 {
-                    var newValue = 0;
-                    foreach (DataChecklistItem item in list.Items)
-                    {
-                        if (item.Checked)
-                        {
-                            var flagItem = Sitecore.Context.ContentDatabase.GetItem(new ID(item.ItemID));
-                            var flagValue = GetFlagValue(flagItem["Value"]);
-                            Assert.IsTrue(flagValue.HasValue, "Value field on item {0} is not a valid flag.", item.ItemID);
-                            newValue += flagValue.GetValueOrDefault(0);
-                        }
-                    }
-                    if (this.Value != newValue.ToString())
+                    var newValue = GetValueFromChecklist(list);
+                    var currentValue = 0;
+                    int.TryParse(this.Value, out currentValue);
+                    if (currentValue != newValue)
                     {
                         this.TrackModified = list.TrackModified;
                         this.SetModified();
@@ -130,13 +154,21 @@ namespace Sitecore.ClientExtensions.ContentEditor
             }
             base.OnLoad(e);
         }
+        protected override void SetModified()
+        {
+            base.SetModified();
+            if (base.TrackModified)
+            {
+                Sitecore.Context.ClientPage.Modified = true;
+            }
+        }
 
         protected virtual void RefreshSelectedFlagsText()
         {
             var list = FindControl(GetID("list")) as Sitecore.Shell.Applications.ContentEditor.Checklist;
             var text = FindControl(GetID("text")) as Sitecore.Shell.Applications.ContentEditor.Text;
             var selectedFlagText = new List<string>();
-            foreach (ChecklistItem item in list.Items)
+            foreach (var item in list.Items)
             {
                 if (item.Checked)
                 {
