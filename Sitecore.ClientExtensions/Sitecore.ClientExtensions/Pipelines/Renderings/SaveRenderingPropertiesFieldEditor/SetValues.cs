@@ -32,7 +32,7 @@ namespace Sitecore.ClientExtensions.Pipelines.Renderings.SaveRenderingProperties
                 foreach (var key in currentParams.Parameters.AllKeys)
                 {
                     var name = key;
-                    var value = currentParams[key];
+                    var value = HttpUtility.UrlDecode(HttpUtility.UrlDecode(currentParams[key]));
                     SetValue(renderingDef, parameters, name, value);
                 }
             }
